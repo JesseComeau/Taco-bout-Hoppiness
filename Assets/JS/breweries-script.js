@@ -10,7 +10,7 @@ var documentApiKeys = [
 ];
 var selectedKey =
   documentApiKeys[Math.floor(Math.random() * documentApiKeys.length)];
-var documenuApi = `https://api.documenu.com/v2/restaurants/search/geo?key=${selectedKey}&cuisine=Mexican&distance=2&fullmenu`;
+var documenuApi = `https://documenu.p.rapidapi.com/restaurants/search/geo?key=${selectedKey}&cuisine=Mexican&distance=2&fullmenu`;
 
 var breweryTable = document.getElementById("breweryTable");
 var tacoTable = document.getElementById("tacoTable");
@@ -127,7 +127,7 @@ function findHoppiness(coordinate) {
         <div class="inline-block bg-gray-200 rounded-full px-3 py-0 text-sm font-semibold text-gray-700 mr-2 mb-0 border-2 border-black">${data[i].brewery_type}</div>
         <div class="invisible h-1" id="brewLat">${data[i].latitude}</div>
         <div class="invisible h-1" id="brewLon">${data[i].longitude}</div>
-      
+
         <div class="invisible h-1" id="brewIndex">${i}</div>
           </div>
         </div>`;
@@ -178,7 +178,7 @@ function getTaco() {
 
               <div class="font-extrabold text-xl mb-2 font-['Bungee_Inline']">${tacoApiData[i].restaurant_name}</div>
 
-              <p class="bg-amber-700 text-slate-100 text-base font-black font-mono"> Address: 
+              <p class="bg-amber-700 text-slate-100 text-base font-black font-mono"> Address:
               ${tacoApiData[i].address.formatted}</p><br>`;
 
           if (tacoApiData[i].restaurant_website != null) {
@@ -216,7 +216,7 @@ function getTaco() {
         // Saves API pull into global scope variable
         let tacoCardTemplate = `
         <div class="rounded-2xl overflow-hidden flex flex-shrink-0 min-w-1/4 content-between hover:scale-105 card-shadow shadow-lg font-mono z-10 bg-cover bg-[url('./Assets/pictures/TacoCardBackground.jpg')]">
-          
+
           <div class="py-2.5 px-2.5 text-left font-extrabold justify-between hover:bg-indigo-400 hover:bg-opacity-50 w-72 text-left shadow-lg tacoCard">
             <div class="font-extrabold text-xl h-1/4 mb-2 font-['Bungee_Inline']">${tacoApiData[i].restaurant_name} </div>
             <p class="text-black font-black text-left text-base"> Address: ${tacoApiData[i].address.formatted}</p><br>`;
